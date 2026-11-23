@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10131c">
+  <title>Walkthrough · Virtual Tabletop</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">✦</span><span>Walkthrough</span><small>TABLETOP</small></div>
+    <div class="session-meta"><span class="status-dot"></span><span id="saveStatus">Local session</span></div>
+    <button class="icon-btn" id="resetBoard" title="Reset board" aria-label="Reset board">↺</button>
+  </header>
+  <main class="app-shell">
+    <aside class="panel library-panel" id="libraryPanel">
+      <div class="panel-heading"><div><span class="eyebrow">PHASE 2</span><h2>Asset library</h2></div><button class="icon-btn close-panel" data-close="libraryPanel">×</button></div>
+      <p class="muted">Drag an asset onto the table, or add one with the buttons below.</p>
+      <div class="asset-tabs" role="tablist"><button class="asset-tab active" data-filter="all">All</button><button class="asset-tab" data-filter="character">Characters</button><button class="asset-tab" data-filter="object">Objects</button><button class="asset-tab" data-filter="map">Maps</button></div>
+      <div class="asset-grid" id="assetGrid"></div>
+      <label class="upload-btn"><span>＋</span> Upload image<input id="imageUpload" type="file" accept="image/png,image/jpeg,image/webp" multiple></label>
+      <button class="secondary-btn" id="addToken">＋ Add token</button>
+      <button class="secondary-btn" id="addObject">＋ Add object</button>
+    </aside>
+    <section class="workspace">
+      <div class="toolbar">
+        <button class="tool-btn active" id="selectTool">⌖ <span>Select</span></button><button class="tool-btn" id="panTool">✥ <span>Pan</span></button>
+        <span class="toolbar-divider"></span><button class="tool-btn" id="zoomOut">−</button><span id="zoomLabel">100%</span><button class="tool-btn" id="zoomIn">＋</button>
+        <span class="toolbar-spacer"></span><button class="tool-btn" id="gridToggle">▦ <span>Grid</span></button><button class="tool-btn" id="fitBoard">⛶ <span>Fit</span></button>
+      </div>
+      <div class="canvas-wrap" id="canvasWrap"><div id="stage"></div><div class="canvas-hint" id="canvasHint">Drag assets here to place them</div></div>
+      <div class="bottom-tools"><button data-open="libraryPanel">▧ <span>Assets</span></button><button data-open="layersPanel">▤ <span>Layers</span></button><button id="deleteSelected">⌫ <span>Delete</span></button><button id="duplicateSelected">⧉ <span>Duplicate</span></button></div>
+    </section>
+    <aside class="panel layers-panel" id="layersPanel">
+      <div class="panel-heading"><div><span class="eyebrow">TABLETOP</span><h2>Layers</h2></div><button class="icon-btn close-panel" data-close="layersPanel">×</button></div>
+      <div class="layer-actions"><button class="secondary-btn" id="newLayer">＋ New layer</button></div>
+      <div id="layerList" class="layer-list"></div>
+      <div class="inspector" id="inspector"><span class="eyebrow">SELECTION</span><strong id="selectionName">Nothing selected</strong><div class="inspector-row"><label>Size <input id="sizeControl" type="range" min="30" max="240" value="90"></label></div><div class="inspector-row"><label>Rotation <input id="rotationControl" type="range" min="0" max="360" value="0"></label></div></div>
+    </aside>
+  </main>
+  <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
