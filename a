@@ -1,7 +1,0 @@
-cd /path/to/walkthrough
-git init
-git remote add origin https://github.com/veryb3ry/walkthrough.git
-git checkout -b phase-1-2/complete
-git add .
-git commit -m "Implement Phases 1 and 2"
-git push -u origin phase-1-2/complete
